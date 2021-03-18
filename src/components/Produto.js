@@ -8,7 +8,7 @@ class Produto extends Component{
         <Text style={styles.produtoNome} > {this.props.nome} </Text>
 
         <View style={styles.directionColum}>
-          <Text style={styles.textDecoration}>Valor: {this.props.valor} </Text>
+          <Text style={styles.textDecoration}>Preço: {this.props.valor} </Text>
           <Text style={styles.textDecoration}>Marca: {this.props.marca} </Text>
         </View>
 
