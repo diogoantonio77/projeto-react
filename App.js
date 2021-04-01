@@ -1,71 +1,145 @@
-import React, { Component } from 'react';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
+import { Picker } from "@react-native-picker/picker";
+import React, { Component } from "react";
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from "react-native";
 
-class App extends Component{
-  constructor(props){
+export default class App extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      img: 'https://www.belasmensagens.com.br/wp-content/uploads/2018/08/que-o-dia-comece-bem.jpg',
-      frase: 'Clique para gerar novas frases'
-    }
-    this.frases=[
-      {frase: 'andam dizendo que o tuÊ é um pelicano.', url: 'data:image/jpeg;base64,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' },
-      {frase: 'andam dizendo que o tuÊ é um tucano', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe5AJ53JKR4jQa-M_HZtQ0J3ujJJLckzaa0w&usqp=CAU'},
-      {frase: 'andam dizendo que o tuÊ é um Bahiano.', url: 'https://cdn.pensador.com/img/imagens/ma/rt/martin_luther_king_suba_primeiro_degrau_com_fe.jpg'},
-      {frase: 'quem com ferro fere com ferro sera espeto na de ferreiro é de pau', url: 'https://i.pinimg.com/474x/e9/6e/43/e96e43d0eb98849671e4c26d715bbf2c.jpg'},
-      {frase: 'se tudo der certo nada vai dar errado', url: 'http://pm1.narvii.com/7443/6862ee0fbbbe12a274a70fe03d55e5d2352b5cf2r1-552-575v2_uhq.jpg'}
-    ]
-    this.enviar = this.enviar.bind(this)
+      curso: 0,
+      cursos: [
+        { key: 1, nome: "sistema de informação" },
+        { key: 2, nome: "Engenharia química" },
+        { key: 3, nome: "Enfermagem" },
+        { key: 3, nome: "Odonto" },
+        { key: 3, nome: "Medicina" },
+        { key: 3, nome: "Engenharia Civil" },
+      ],
+      periodo: 0,
+      periodos: [
+        { key: 1, periodo: "1º" },
+        { key: 2, periodo: "2º" },
+        { key: 3, periodo: "3º" },
+        { key: 4, periodo: "4º" },
+        { key: 5, periodo: "5º" },
+        { key: 6, periodo: "6º" },
+        { key: 7, periodo: "7º" },
+        { key: 8, periodo: "8º" },
+
+      ],
+      turnoP: 0,
+      turnos: [
+        { key: 1, turno: "Diurno" },
+        { key: 2, turno: "Noturno" },
+        { key: 3, turno: "Integral" },
+      ],
+      nome: " ",
+    };
   }
+  render() {
+    let cursosItems = this.state.cursos.map((v, k) => {
+      return <Picker.Item key={k} value={k} label={v.nome} />;
+    });
+    let periodoItems = this.state.periodos.map((v, k) => {
+      return <Picker.Item key={k} value={k} label={v.periodo} />;
+    });
+    let turnoItems = this.state.turnos.map((v, k) => {
+      return <Picker.Item key={k} value={k} label={v.turno} value />;
+    });
+    return (
+      <>
+        <View style={styles.header}>
+          <Image
+            source={{
+              uri:
+                "assets/logo-unipam.png",
+            }}
+            style={{ width: 50, height: 50 }}
+          />
+        </View>
+        <SafeAreaView style={styles.container}>
+          <Text>Selecione os parâmetros:</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Seu nome"
+            onChangeText={(itemValue) => this.setState({ nome: itemValue })}
+          />
+          <Picker
+            selectedValue={this.state.curso}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({ curso: itemValue })
+            }
+          >
+            {cursosItems}
+          </Picker>
 
-  enviar(){
-    const positionArray = Math.floor(Math.random()*5)
-    const positionImg = this.frases[positionArray].url
-    const positionfrase = this.frases[positionArray].frase
-    this.setState({img: positionImg})
-    this.setState({frase: positionfrase})
-  }
-
-
-  render(){
-    
-    return(
-      <View style={styles.container}>
-       <Image 
-          source={{uri: this.state.img}}
-          style= {{width: 300, height: 300, marginVertical:20}}
-      />
-       <Text style={styles.texto}>{this.state.frase}</Text>
-        <Button
-          title='Nova frase'
-          onPress={this.enviar}
-        />
-       
-      </View>
-    )
+          <Picker
+            selectedValue={this.state.periodo}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({ periodo: itemValue })
+            }
+          >
+            {periodoItems}
+          </Picker>
+          <Picker
+            selectedValue={this.state.turno}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({ turnoP: itemValue })
+            }
+          >
+            {turnoItems}
+          </Picker>
+          <Text>Informações inseridas:</Text>
+          <Text>
+            <Text style={styles.bold}>Nome:</Text>
+            {this.state.nome}
+          </Text>
+          <Text>
+            <Text style={styles.bold}>Curso:</Text>
+            {this.state.cursos[this.state.curso].nome}
+          </Text>
+          <Text>
+            <Text style={styles.bold}>Período:</Text>
+            {this.state.periodos[this.state.periodo].periodo}
+          </Text>
+          <Text>
+            <Text style={styles.bold}>Turno:</Text>
+            {this.state.turnos[this.state.turnoP].turno}
+          </Text>
+        </SafeAreaView>
+      </>
+    );
   }
 }
-
-export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    margin: 20,
   },
   input: {
-    height: 45,
+    height: 30,
+    width: 200,
     borderWidth: 1,
-    borderColor: '#222',
-    fontSize: 20,
-    padding: 10,
-    margin: 5
+    borderRadius: 3,
+    marginTop: 20,
+    marginBottom: 20,
   },
-  texto: {
-    fontSize: 25,
-    textAlign: 'center',
-    margin: 5
-  }
+  bold: {
+    fontWeight: "bold",
+  },
+  header: {
+    height: 60,
+    backgroundColor: "#4954AE",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });

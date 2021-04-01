@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "listaInterface",
-    "slug": "listaInterface",
+    "name": "pickerState",
+    "slug": "pickerState",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
