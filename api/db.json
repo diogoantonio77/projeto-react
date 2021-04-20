@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "description": "Arroz",
+      "category": "Não Perecível",
+      "image": "https://lh3.googleusercontent.com/proxy/_R1pF1qoN1NZNDw8B5_SDScl2wu3tYKuEMBN1Q58meNTFmk0uJJEOIhxbbh_neSfOgiaDzgpj-2bHPlqlpL2ej88qVZhsk_9ZlNGqhmmOzKUdjfgx8sESFi0"
+    },
+    {
+      "id": "2",
+      "description": "Feijão",
+      "category": "Não Perecível",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdtkLYzRzic9xXmlHmey8TNTnbkbjJidFSnndWtgrR5ZKnCvBbVEowjSraiWU2jKy3QCs&usqp=CAU"
+    },
+    {
+      "id": "3",
+      "description": "Macarrão",
+      "category": "Não Perecível",
+      "image": "https://statig2.akamaized.net/bancodeimagens/69/b2/my/69b2mydwu808ftj2k95ehggwd.jpg"
+    },
+    {
+      "id": "4",
+      "description": "Alface",
+      "category": "Perecivel",
+      "image": "https://superprix.vteximg.com.br/arquivos/ids/178850-600-600/Alface-Crespa-Verde-Un-396.png?v=636934628540170000"
+    },
+    {
+      "id": "5",
+      "description": "Tomate",
+      "category": "Perecivel",
+      "image": "https://media.gazetadopovo.com.br/2020/07/02153506/tomate-04cdc960-660x372.jpg"
+    }
+
+  ]
+}

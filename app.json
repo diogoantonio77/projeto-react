@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pickerState",
-    "slug": "pickerState",
+    "name": "api-restful",
+    "slug": "api-restful",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
